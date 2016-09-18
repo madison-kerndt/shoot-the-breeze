@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { pick } from 'lodash';
 import { reference } from '../firebase';
 
 
@@ -12,7 +13,8 @@ export default class MessageInput extends Component {
   }
 
   characterCountDown() {
-    const characterRemaining = 140 - this.state.message.length;
+    const maxCharacter = 140;
+    const characterRemaining = maxCharacter - this.state.message.length;
     return this.setState({ characterCount: characterRemaining }) ;
   }
 
@@ -23,7 +25,7 @@ export default class MessageInput extends Component {
     const user = this.props.user;
 
     reference.push({
-      user: user.displayName,
+      user: pick(user, 'displayName', 'email', 'uid'),
       content: message,
       createdAt: Date.now()
     });
