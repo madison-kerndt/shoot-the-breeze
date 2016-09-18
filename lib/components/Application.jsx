@@ -10,6 +10,7 @@ export default class Application extends Component {
     super();
     this.state = {
       messages: [],
+      user: null
     };
   }
 
@@ -20,14 +21,15 @@ export default class Application extends Component {
         messages: map(messages, (val, key) => extend(val, { key }))
       });
     });
+    firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
 
   render() {
     return(
       <section>
         <MessageContainer messages={this.state.messages} />
-        <UserList messages={this.state.messages} />
-        <SignIn />
+        <UserList messages={this.state.messages} user={this.state.user}/>
+        <SignIn user={this.state.user}/>
       </section>
     )
   }
