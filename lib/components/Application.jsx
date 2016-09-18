@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import SignIn from './SignIn';
 import MessageContainer from './MessageContainer';
-// import firebase, { reference, signIn } from '../firebase';
-// import { pick, map, extend } from 'lodash';
+import firebase, { reference } from '../firebase';
+import { pick, map, extend } from 'lodash';
 
 // Very few things in this component are a good idea.
 // Feel free to blow it all away.
@@ -12,14 +12,22 @@ export default class Application extends Component {
     super();
     this.state = {
       messages: [],
-      draftMessage: '',
     };
+  }
+
+  componentDidMount() {
+    reference.limitToLast(100).on('value', (snapshot) => {
+      const messages = snapshot.val() || {};
+      this.setState({
+        messages: map(messages, (val, key) => extend(val, { key }))
+      });
+    });
   }
 
   render() {
     return(
       <section>
-        <MessageContainer />
+        <MessageContainer messages={this.state.messages} />
         <SignIn />
       </section>
     )
