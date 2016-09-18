@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
-import { pick } from 'lodash';
+import { uniqBy } from 'lodash';
 import { reference } from '../firebase';
 
-export default function ({ }) {
+export default function ({ messages }) {
+  const UniqueUsers = uniqBy(messages, (u) => {u.user});
+  console.log(UniqueUsers);
   return(
-    <aside class="user-list">
-      <h2 class="title-users">Users</h2>
-        <ul class="list-users">
-          <li>
-            <p>Madison Kerndt</p>
-            <p>(madison.kerndt@gmail.com)
-            <div class="current-active-user"></div>
-            </p>
-          </li>
+    <aside className='user-list'>
+      <h2 className='title-users'>Users</h2>
+      <ul className='list-users'>
+        {UniqueUsers.map((m) => <li key={m.user.uid}>{ m.user.displayName } ({ m.user.email })</li>)}
       </ul>
     </aside>
   )
