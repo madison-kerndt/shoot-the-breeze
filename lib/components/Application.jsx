@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-import SignIn from './SignIn';
+import { pick, map, extend, reverse } from 'lodash';
+import firebase, { reference } from '../firebase';
+import Header from './Header';
 import MessageContainer from './MessageContainer';
 import UserList from './UserList';
-import firebase, { reference } from '../firebase';
-import { pick, map, extend } from 'lodash';
+import SignIn from './SignIn';
 
 export default class Application extends Component {
   constructor() {
     super();
     this.state = {
       messages: [],
-      user: null
+      user: null,
+      search: '',
+      sort: true,
+      chosen: ''
     };
   }
 
@@ -24,9 +28,14 @@ export default class Application extends Component {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
 
+  reverseOrder() {
+    return this.setState({sort: !(this.state.sort), messages: reverse(this.state.messages)});
+  }
+
   render() {
     return(
       <section>
+        <Header sort={ this.state.sort } reverseOrder={() => this.reverseOrder()} />
         <MessageContainer messages={this.state.messages} />
         <UserList messages={this.state.messages} user={this.state.user}/>
         <SignIn user={this.state.user}/>
