@@ -38,13 +38,13 @@ export default class MessageInput extends Component {
         <input
           className='footer-message-input'
           type='text'
-          maxLength='140'
+          maxLength={ this.state.maxCharacter }
           placeholder='Message'
-          value={this.state.message}
+          value={ this.state.message }
           onChange={e => this.setState({ message: e.target.value })}
           onKeyUp={() => this.characterCountDown()}
         />
-        <p className='character-count'>{this.state.characterCount}</p>
+        <p className='character-count'>{ this.state.characterCount }</p>
         <input
           type='button'
           value='Clear'

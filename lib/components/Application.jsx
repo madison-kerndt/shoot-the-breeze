@@ -12,8 +12,8 @@ export default class Application extends Component {
     this.state = {
       messages: [],
       user: null,
-      search: '',
       sort: true,
+      filtered: [],
       chosen: ''
     };
   }
@@ -28,15 +28,25 @@ export default class Application extends Component {
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
 
-  reverseOrder() {
+  handleReverseOrder() {
     return this.setState({sort: !(this.state.sort), messages: reverse(this.state.messages)});
+  }
+
+  handleFilter(e){
+    this.setState({
+      filtered: (this.state.messages.filter((m) => {return m.content.toLowerCase().indexOf(e.target.value) !== -1; }))
+    });
   }
 
   render() {
     return(
       <section>
-        <Header sort={ this.state.sort } reverseOrder={() => this.reverseOrder()} />
-        <MessageContainer messages={this.state.messages} />
+        <Header
+          handleFilter={(e) => this.handleFilter(e)}
+          sort={ this.state.sort }
+          handleReverseOrder={() => this.handleReverseOrder()}
+        />
+        <MessageContainer filtered={this.state.filtered} messages={this.state.messages} />
         <UserList messages={this.state.messages} user={this.state.user}/>
         <SignIn user={this.state.user}/>
       </section>
