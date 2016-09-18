@@ -8,13 +8,13 @@ export default class MessageInput extends Component {
     super(props);
     this.state = {
       message: '',
+      maxCharacter: 140,
       characterCount: 140,
     };
   }
 
   characterCountDown() {
-    const maxCharacter = 140;
-    const characterRemaining = maxCharacter - this.state.message.length;
+    const characterRemaining = this.state.maxCharacter - this.state.message.length;
     return this.setState({ characterCount: characterRemaining }) ;
   }
 
@@ -49,13 +49,13 @@ export default class MessageInput extends Component {
           type='button'
           value='Clear'
           className='footer-clear-button'
-          onClick={() => this.setState({ message: '', characterCount: 140})}
+          onClick={() => this.setState({ message: '', characterCount: this.state.maxCharacter })}
         />
         <input
           type='submit'
           value='Submit'
           className='footer-submit-button'
-          onClick={() => this.setState({ characterCount: 140 })}
+          onClick={() => this.setState({ characterCount: this.state.maxCharacter })}
         />
       </form>
     );
