@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import SignIn from './SignIn';
 import MessageContainer from './MessageContainer';
+import UserList from './UserList';
 import firebase, { reference } from '../firebase';
 import { pick, map, extend } from 'lodash';
-
-// Very few things in this component are a good idea.
-// Feel free to blow it all away.
 
 export default class Application extends Component {
   constructor() {
@@ -28,6 +26,7 @@ export default class Application extends Component {
     return(
       <section>
         <MessageContainer messages={this.state.messages} />
+        <UserList messages={this.state.messages} />
         <SignIn />
       </section>
     )
