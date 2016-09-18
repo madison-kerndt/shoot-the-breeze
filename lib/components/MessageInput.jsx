@@ -49,12 +49,13 @@ export default class MessageInput extends Component {
           type='button'
           value='Clear'
           className='footer-clear-button'
-          onClick={() => this.setState({ message: '' })}
+          onClick={() => this.setState({ message: '', characterCount: 140})}
         />
         <input
           type='submit'
           value='Submit'
           className='footer-submit-button'
+          onClick={() => this.setState({ characterCount: 140 })}
         />
       </form>
     );
