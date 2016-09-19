@@ -5,7 +5,7 @@ import MessageInput from './MessageInput';
 
 export default function ({ user }) {
   if (user) {
-    return(
+    return (
       <footer>
         <section className='user-info'>
           <article className='user-info-text-block'>
@@ -14,9 +14,9 @@ export default function ({ user }) {
         </section>
         <MessageInput user={ user}/>
       </footer>
-    )
+    );
   }
-  return(
+  return (
     <section className='sign-in'>
       <button className='sign-in-button' onClick={() => signIn()}>Log in</button>
     </section>

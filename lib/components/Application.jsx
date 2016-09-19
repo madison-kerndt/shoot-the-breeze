@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { pick, map, extend, reverse } from 'lodash';
+import { map, extend, reverse } from 'lodash';
 import firebase, { reference } from '../firebase';
 import Header from './Header';
 import MessageContainer from './MessageContainer';
@@ -41,24 +41,20 @@ export default class Application extends Component {
 
   handleSaveChosenUid(id) {
     if (this.state.chosenUser === id) {
-      return this.setState({ chosenUser: '' });
+      return this.setState({ chosenUser: '', chosen: [] });
     }
     return (
-      this.setState({ chosenUser: id })
+      this.setState({
+        chosenUser: id, chosen: (this.state.messages.filter(a => a.user.uid === id))
+      })
     );
   }
 
-  // handleChosenUser(e){
-  //   this.setState({
-  //     chosen: (this.state.messages.filter((a) => {return a.user(e.target.value) !== -1; }))
-  //   });
-  // }
-
   render() {
-    return(
+    return (
       <section>
         <Header
-          handleFilter={(e) => this.handleFilter(e)}
+          handleFilter={e => this.handleFilter(e)}
           sort={ this.state.sort }
           handleReverseOrder={() => this.handleReverseOrder()}
         />
@@ -68,13 +64,13 @@ export default class Application extends Component {
           chosen={this.state.chosen}
         />
         <UserList
-          handleSaveChosenUid={(e) => this.handleSaveChosenUid(e)}
+          handleSaveChosenUid={e => this.handleSaveChosenUid(e)}
           messages={this.state.messages}
           user={this.state.user}
         />
         <SignIn user={this.state.user}/>
       </section>
-    )
+    );
   }
 }
 
