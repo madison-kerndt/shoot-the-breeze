@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { uniqBy } from 'lodash';
-import { reference } from '../firebase';
 
 export default function ({ handleSaveChosenUid, messages, user }) {
   const uniqueUsers = uniqBy(messages, (u) => { return u.user.uid; });
