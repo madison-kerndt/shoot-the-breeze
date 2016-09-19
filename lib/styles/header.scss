@@ -1,63 +1,53 @@
 @import 'variables';
 
-@media (min-width: 0px) {
-  header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 
-    @include bookends();
-    height: 20vh;
-  }
+  @include bookends();
+  height: 15vh;
+}
 
-  .header-main-title {
-    display: none;
-  }
+.header-main-title {
+  display: none;
+}
 
-  .header-nav-input {
-    @include input-field();
-    width: 80vw;
-  }
+.header-nav-input {
+  @include input-field();
+  width: 80vw;
+}
 
-  .header-actions {
-    width: 170px;
-    display: flex;
-    justify-content: space-between;
-  }
+.header-actions {
+  width: 170px;
+  display: flex;
+  justify-content: space-between;
+}
 
-  .header-main-sort-button-up {
-    @include header-main-sort-button($color-highlight-one, $up-icon);
-  }
+.header-main-sort-button-up {
+  @include header-main-sort-button($color-highlight-one, $up-icon);
+}
 
-  .header-main-sort-button-down {
-    margin: 9px;
-    margin-top: 20px;
-    @include header-main-sort-button($color-highlight-one, $down-icon);
-  }
-
+.header-main-sort-button-down {
+  @include header-main-sort-button($color-highlight-one, $down-icon);
 }
 
 @media (min-width: 400px) {
   header {
-    @include bookends();
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .header-actions {
-    background-color: red;
-  }
-
-  .header-main-title {
-    @include font-main-bold();
-    display: inline-block;
-    margin: 12px;
-    margin-top: 3.5vh;
-    font-size: .9em;
+    height: 10vh;
   }
 
   .header-nav-input {
     width: 50vw;
+  }
+}
+
+@media (min-width: 620px) {
+  .header-main-title {
+    display: inline-block;
+    @include font-main-bold();
+    font-size: .9em;
   }
 }
