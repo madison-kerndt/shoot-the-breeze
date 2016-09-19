@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import moment from 'moment';
-import firebase, { signIn } from '../firebase';
+// import firebase, { signIn } from '../firebase';
 
 export default function ({ createdAt, user, content }) {
-  return(
+  return (
     <section className='message'>
       <article className='message-time time'>
         {moment(createdAt).format('MMMM Do, h:mm a')}

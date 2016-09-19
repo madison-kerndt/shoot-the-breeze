@@ -15,7 +15,7 @@ export default class Application extends Component {
       sort: true,
       filtered: [],
       chosenUser: '',
-      chosen: []
+      chosen: [],
     };
   }
 
@@ -23,31 +23,34 @@ export default class Application extends Component {
     reference.limitToLast(100).on('value', (snapshot) => {
       const messages = snapshot.val() || {};
       this.setState({
-        messages: map(messages, (val, key) => extend(val, { key }))
+        messages: map(messages, (val, key) => extend(val, { key })),
       });
     });
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
   }
 
   handleReverseOrder() {
-    return this.setState({sort: !(this.state.sort), messages: reverse(this.state.messages)});
+    return this.setState({ sort: !(this.state.sort), messages: reverse(this.state.messages) });
   }
 
-  handleFilter(e){
+  handleFilter(e) {
     this.setState({
-      filtered: (this.state.messages.filter((m) => {return m.content.toLowerCase().indexOf(e.target.value) !== -1; }))
+      filtered: (this.state.messages.filter((m) => {return m.content.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1; }))
     });
   }
 
-  handleSaveChosenUid(id){
-    console.log(id);
-    console.log('hello');
-
+  handleSaveChosenUid(id) {
+    if (this.state.chosenUser === id) {
+      return this.setState({ chosenUser: '' });
+    }
+    return (
+      this.setState({ chosenUser: id })
+    );
   }
 
   // handleChosenUser(e){
   //   this.setState({
-  //     chosen: (this.state.messages.filter((m) => {return m.user(e.target.value) !== -1; }))
+  //     chosen: (this.state.messages.filter((a) => {return a.user(e.target.value) !== -1; }))
   //   });
   // }
 

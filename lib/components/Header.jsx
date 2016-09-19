@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default function ({ sort, handleFilter, handleReverseOrder }){
+export default function ({ sort, handleFilter, handleReverseOrder }) {
   return (
     <header>
       <h1 className='header-main-title'>Shoot the Breeze</h1>
@@ -25,5 +25,5 @@ export default function ({ sort, handleFilter, handleReverseOrder }){
           </button>
       </article>
     </header>
-  )
+  );
 }
