@@ -14,7 +14,8 @@ export default class Application extends Component {
       user: null,
       sort: true,
       filtered: [],
-      chosen: ''
+      chosenUser: '',
+      chosen: []
     };
   }
 
@@ -38,6 +39,18 @@ export default class Application extends Component {
     });
   }
 
+  handleSaveChosenUid(id){
+    console.log(id);
+    console.log('hello');
+
+  }
+
+  // handleChosenUser(e){
+  //   this.setState({
+  //     chosen: (this.state.messages.filter((m) => {return m.user(e.target.value) !== -1; }))
+  //   });
+  // }
+
   render() {
     return(
       <section>
@@ -46,8 +59,16 @@ export default class Application extends Component {
           sort={ this.state.sort }
           handleReverseOrder={() => this.handleReverseOrder()}
         />
-        <MessageContainer filtered={this.state.filtered} messages={this.state.messages} />
-        <UserList messages={this.state.messages} user={this.state.user}/>
+        <MessageContainer
+          filtered={this.state.filtered}
+          messages={this.state.messages}
+          chosen={this.state.chosen}
+        />
+        <UserList
+          handleSaveChosenUid={(e) => this.handleSaveChosenUid(e)}
+          messages={this.state.messages}
+          user={this.state.user}
+        />
         <SignIn user={this.state.user}/>
       </section>
     )
