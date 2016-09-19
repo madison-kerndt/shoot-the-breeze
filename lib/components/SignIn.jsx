@@ -17,8 +17,8 @@ export default function ({ user }) {
     );
   }
   return (
-    <section className='sign-in'>
+    <footer className='sign-in'>
       <button className='sign-in-button' onClick={() => signIn()}>Log in</button>
-    </section>
+    </footer>
   );
 }
