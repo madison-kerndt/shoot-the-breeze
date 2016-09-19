@@ -46,12 +46,14 @@ export default class MessageInput extends Component {
         />
         <p className='character-count'>{ this.state.characterCount }</p>
         <input
+          disabled={ !this.state.message }
           type='button'
           value='Clear'
           className='footer-clear-button'
           onClick={() => this.setState({ message: '', characterCount: this.state.maxCharacter })}
         />
         <input
+          disabled={ !this.state.message }
           type='submit'
           value='Submit'
           className='footer-submit-button'

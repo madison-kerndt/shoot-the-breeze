@@ -19,7 +19,6 @@ $down-icon: url(/public/img/down-arrow.svg) no-repeat;
   background-color: $color-main;
   width: 100%;
   font-family: $font-main;
-  // height: 10vh;
   color: white;
 }
 
@@ -34,6 +33,7 @@ $down-icon: url(/public/img/down-arrow.svg) no-repeat;
 
 @mixin header-main-sort-button($color, $img){
   background: $img;
+  background-position: right center;
   @include button($color);
 }
 
@@ -44,8 +44,8 @@ $down-icon: url(/public/img/down-arrow.svg) no-repeat;
   font-family: $font-main;
   border: none;
   border-radius: 2px;
-  display: inline-block;
-  position: relative;
+  // display: inline-block;
+  // position: relative;
   background-position: right;
   background-color: $color;
 }

@@ -5,10 +5,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 
     @include bookends();
-    height: 10vh;
+    height: 20vh;
   }
 
   .header-main-title {
@@ -21,14 +21,12 @@
   }
 
   .header-actions {
-    width: 50vw;
+    width: 170px;
     display: flex;
     justify-content: space-between;
   }
 
   .header-main-sort-button-up {
-    position: relative;
-    float: right;
 
     margin: 9px;
     margin-top: 20px;
@@ -37,9 +35,6 @@
   }
 
   .header-main-sort-button-down {
-    position: relative;
-    float: right;
-
     margin: 9px;
     margin-top: 20px;
     @include header-main-sort-button($color-highlight-one, $down-icon);
@@ -50,9 +45,13 @@
 @media (min-width: 400px) {
   header {
     @include bookends();
-    position: absolute;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
+  .header-actions {
+    background-color: red;
+  }
 
   .header-main-title {
     @include font-main-bold();
@@ -64,5 +63,17 @@
 
   .header-nav-input {
     width: 50vw;
+  }
+
+  .header-main-sort-button-up {
+    float: right;
+    display: inline-block;
+    position: relative;
+  }
+
+  .header-main-sort-button-down {
+    float: right;
+    display: inline-block;
+    position: relative;
   }
 }
