@@ -27,10 +27,6 @@
   }
 
   .header-main-sort-button-up {
-
-    margin: 9px;
-    margin-top: 20px;
-
     @include header-main-sort-button($color-highlight-one, $up-icon);
   }
 
@@ -63,17 +59,5 @@
 
   .header-nav-input {
     width: 50vw;
-  }
-
-  .header-main-sort-button-up {
-    float: right;
-    display: inline-block;
-    position: relative;
-  }
-
-  .header-main-sort-button-down {
-    float: right;
-    display: inline-block;
-    position: relative;
   }
 }
