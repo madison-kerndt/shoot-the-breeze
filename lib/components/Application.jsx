@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { map, extend, reverse } from 'lodash';
 import firebase, { reference } from '../firebase';
 import Header from './Header';
@@ -6,7 +6,7 @@ import MessageContainer from './MessageContainer';
 import UserList from './UserList';
 import SignIn from './SignIn';
 
-export default class Application extends Component {
+export default class Application extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -30,13 +30,21 @@ export default class Application extends Component {
   }
 
   handleReverseOrder() {
-    return this.setState({ sort: !(this.state.sort), messages: reverse(this.state.messages) });
+    const { messages, sort, chosen, filtered } = this.state;
+    return this.setState({ sort: !(sort),
+                           messages: reverse(messages),
+                           chosen: reverse(chosen),
+                           filtered: reverse(filtered),
+    });
   }
 
   handleFilter(e) {
-    this.setState({
-      filtered: (this.state.messages.filter((m) => {return m.content.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1; }))
-    });
+    if (e.target.value === '') {
+      return this.setState({ filtered: [] });
+    }
+    return (this.setState({
+      filtered: (this.state.messages.filter(m => m.content.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1)),
+    }));
   }
 
   handleSaveChosenUid(id) {
@@ -45,7 +53,7 @@ export default class Application extends Component {
     }
     return (
       this.setState({
-        chosenUser: id, chosen: (this.state.messages.filter(a => a.user.uid === id))
+        chosenUser: id, chosen: (this.state.messages.filter(a => a.user.uid === id)),
       })
     );
   }
@@ -73,27 +81,3 @@ export default class Application extends Component {
     );
   }
 }
-
-
-
-//   render() {
-//     const { user, messages, draftMessage } = this.state;
-//
-//     return (
-//       <div className="Application">
-//         {user ? <p>Hello {user.displayName}</p> : <button onClick={() => signIn()}>Sign In</button> }
-//         <ul>
-//           { this.state.messages.map(m => <li key={m.key}>{m.user.displayName}: {m.content}</li>) }
-//         </ul>
-//         <div className="MessageInput">
-//           <input
-//             placeholder="Message…"
-//             value={this.state.draftMessage}
-//             onChange={(e) => this.setState({ draftMessage: e.target.value })}
-//           />
-//           <button onClick={() => this.addNewMessage()}>Add New Message</button>
-//         </div>
-//       </div>
-//     )
-//   }
-// }

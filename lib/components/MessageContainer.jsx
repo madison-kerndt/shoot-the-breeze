@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import firebase, { reference } from '../firebase';
+import React from 'react';
 import Message from './Message';
 import { map } from 'lodash';
 

@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import moment from 'moment';
-// import firebase, { signIn } from '../firebase';
 
 export default function ({ createdAt, user, content }) {
   return (

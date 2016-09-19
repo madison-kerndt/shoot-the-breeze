@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import firebase, { signIn } from '../firebase';
 import MessageInput from './MessageInput';
 
