@@ -19,10 +19,11 @@
     @include font-main-bold();
   }
 
-  aside p {
+  aside li {
     font-size: .6em;
     display: inline-block;
     margin-top: 3vh;
+    cursor: pointer;
   }
 
   .current-active-user {

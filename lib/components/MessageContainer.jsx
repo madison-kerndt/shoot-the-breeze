@@ -12,8 +12,8 @@ export default function({ messages, filtered }) {
     )
   }
   return(
-  <main>
-    { messages.map((message) => <Message {...message}/>)}
-  </main>
+    <main>
+      { messages.map((message) => <Message {...message}/>)}
+    </main>
   )
 }
