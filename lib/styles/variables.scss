@@ -12,8 +12,8 @@ $color-base-input: #D8D8D8;
 
 $font-main: 'Fira Sans', sans-serif;
 
-$up-icon: url(/public/img/up-arrow.svg) no-repeat;
-$down-icon: url(/public/img/down-arrow.svg) no-repeat;
+$up-icon: url(/img/up-arrow.svg) no-repeat;
+$down-icon: url(/img/down-arrow.svg) no-repeat;
 
 @mixin bookends() {
   background-color: $color-main;
@@ -41,11 +41,10 @@ $down-icon: url(/public/img/down-arrow.svg) no-repeat;
   width: 70px;
   height: 30px;
   color: white;
+  margin: 0;
   font-family: $font-main;
   border: none;
   border-radius: 2px;
-  // display: inline-block;
-  // position: relative;
   background-position: right;
   background-color: $color;
 }
