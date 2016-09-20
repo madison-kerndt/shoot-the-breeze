@@ -1,37 +1,40 @@
 @import 'variables';
 
-  aside {
-    display: hidden;
-  }
+aside {
+  display: hidden;
+}
 
 @media (min-width: 620px) {
   aside {
-    padding: 3vw;
-    padding-top: 13vh;
     float: right;
-    background: $color-base-light;
     height: 100vh;
     width: 30%;
-    font-family: $font-main;
+
+    padding: 3vw;
+    padding-top: 13vh;
+
+    background: $color-base-light;
   }
 
   .title-users {
-    @include font-main-bold();
+    @include font-main-bold($color-base-light);
   }
 
   aside li {
-    font-size: .6em;
     display: inline-block;
     margin-top: 3vh;
+    font-size: .6em;
     cursor: pointer;
   }
 
   .current-active-user {
+    display: inline-block;
+    margin-left: 3px;
+
     height: .5em;
     width: .5em;
-    margin-left: 3px;
+
     background-color: $color-highlight-three;
-    border-radius: 50%;
-    display: inline-block;
+    @include border-radius(50%);
   }
 }

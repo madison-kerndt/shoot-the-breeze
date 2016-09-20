@@ -5,3 +5,7 @@
 @import 'footer';
 @import 'aside';
 @import 'main';
+
+body {
+  font-family: $font-main;
+}

@@ -1,14 +1,8 @@
 @import 'variables';
 
-header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-
+.header {
   @include bookends();
-  height: 15vh;
+  top: 0;
 }
 
 .header-main-title {
@@ -17,25 +11,24 @@ header {
 
 .header-nav-input {
   @include input-field();
-  width: 80vw;
 }
 
 .header-actions {
-  width: 170px;
-  display: flex;
+  @include flex();
   justify-content: space-between;
+  width: 170px;
 }
 
 .header-main-sort-button-up {
-  @include header-main-sort-button($color-highlight-one, $up-icon);
+  @include button($color-highlight-one);
 }
 
 .header-main-sort-button-down {
-  @include header-main-sort-button($color-highlight-one, $down-icon);
+  @include button($color-highlight-one);
 }
 
 @media (min-width: 400px) {
-  header {
+  .header {
     height: 10vh;
   }
 
@@ -47,7 +40,8 @@ header {
 @media (min-width: 620px) {
   .header-main-title {
     display: inline-block;
-    @include font-main-bold();
+
+    @include font-main-bold($color-base-light);
     font-size: .9em;
   }
 }
