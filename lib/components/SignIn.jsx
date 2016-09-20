@@ -9,16 +9,26 @@ export default function ({ user }) {
       <footer>
         <section className='user-info'>
           <article className='user-info-text-block'>
-            <p>Logged in as {user.displayName} ({user.email}).</p>
+            <p>
+              Logged in as {user.displayName} ({user.email}).
+            </p>
           </article>
         </section>
-        <MessageInput user={ user}/>
+        <MessageInput user={ user }/>
       </footer>
-    );
+    )
   }
   return (
-    <footer className='sign-in'>
-      <button className='sign-in-button' onClick={() => signIn()}>Log in</button>
+    <footer
+      className='sign-in'
+    >
+      <button
+        className='sign-in-button'
+        onClick={() => signIn()}>
+        Log in
+      </button>
     </footer>
   );
 }
+
+// firebase.auth().onAuthChanged( takes a function )
