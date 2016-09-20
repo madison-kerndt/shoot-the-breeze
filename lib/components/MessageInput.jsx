@@ -35,30 +35,34 @@ export default class MessageInput extends Component {
   render() {
     return (
       <form className="footer" onSubmit={e => this.createMessage(e)}>
-        <input
-          className='footer-message-input'
-          type='text'
-          maxLength={ this.state.maxCharacter }
-          placeholder='Message'
-          value={ this.state.message }
-          onChange={e => this.setState({ message: e.target.value })}
-          onKeyUp={() => this.characterCountDown()}
-        />
-        <p className='character-count'>{ this.state.characterCount }</p>
-        <input
-          disabled={ !this.state.message }
-          type='button'
-          value='Clear'
-          className='footer-clear-button'
-          onClick={() => this.setState({ message: '', characterCount: this.state.maxCharacter })}
-        />
-        <input
-          disabled={ !this.state.message }
-          type='submit'
-          value='Submit'
-          className='footer-submit-button'
-          onClick={() => this.setState({ characterCount: this.state.maxCharacter })}
-        />
+        <article className='footer-input-section'>
+          <input
+            className='footer-message-input'
+            type='text'
+            maxLength={ this.state.maxCharacter }
+            placeholder='Message'
+            value={ this.state.message }
+            onChange={e => this.setState({ message: e.target.value })}
+            onKeyUp={() => this.characterCountDown()}
+          />
+          <p className='character-count'>{ this.state.characterCount }</p>
+        </article>
+        <article className='footer-actions'>
+          <input
+            disabled={ !this.state.message }
+            type='button'
+            value='Clear'
+            className='footer-clear-button'
+            onClick={() => this.setState({ message: '', characterCount: this.state.maxCharacter })}
+          />
+          <input
+            disabled={ !this.state.message }
+            type='submit'
+            value='Submit'
+            className='footer-submit-button'
+            onClick={() => this.setState({ characterCount: this.state.maxCharacter })}
+          />
+        </article>
       </form>
     );
   }

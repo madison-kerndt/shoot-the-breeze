@@ -1,23 +1,36 @@
 @import 'variables';
 
 .sign-in {
+  position: fixed;
+  bottom: 15vh;
+  @include sign-in();
+}
+
+.user-info {
+  bottom: 15vh;
   @include sign-in();
 }
 
 .sign-in-button {
-  @include button($color-highliht-two);
   margin-top: 2vh;
-}
-
-.user-info {
-  @include sign-in();
-  font-family: $font-main;
+  @include button($color-highlight-two);
 }
 
 .user-info-text-block {
   margin-left: 3vw;
   margin-top: 3vh;
 }
+
 .user-info p {
   display: inline-block;
+}
+
+@media (min-width: 400px) {
+  .sign-in {
+    bottom: 10vh;
+  }
+
+  .user-info {
+    bottom: 10vh;
+  }
 }

@@ -2,9 +2,7 @@
 
 main {
   padding: 3vw;
-  padding-top: 13vh;
-  display: inline-block;
-  font-family: $font-main;
+  padding-top: 15vh;
 }
 
 .message {
@@ -17,11 +15,16 @@ main article {
 }
 
 .time {
-  color: $color-highliht-text;
+  @include font-main-bold($color-highlight-text);
 }
 
 .message-author {
-  color: $color-highlight-one;
-  @include font-main-bold();
+  @include font-main-bold($color-highlight-one);
   margin-left: 1em;
+}
+
+@media (min-width: 400px) {
+  main {
+    padding-top: 10vh;
+  }
 }
