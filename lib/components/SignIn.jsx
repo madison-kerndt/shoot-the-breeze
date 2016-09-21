@@ -36,6 +36,3 @@ export default function ({ user, handleSignOut }) {
     </footer>
   );
 }
-
-
-// firebase.auth().onAuthChanged( takes a function )

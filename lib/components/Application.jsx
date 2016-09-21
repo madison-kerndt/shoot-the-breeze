@@ -11,7 +11,7 @@ export default class Application extends React.Component {
     super();
     this.state = {
       messages: [],
-      user: '',
+      user: null,
       sort: true,
       filtered: [],
       chosenUser: '',
@@ -59,7 +59,7 @@ export default class Application extends React.Component {
   }
 
   userSignOut() {
-    firebase.auth().signOut().then(this.setState({ user: '' }))
+    firebase.auth().signOut().then(this.setState({ user: null }));
   }
 
   render() {
@@ -70,8 +70,6 @@ export default class Application extends React.Component {
           sort={ this.state.sort }
           handleReverseOrder={() => this.handleReverseOrder()}
         />
-        <input type='number' onChange={(e) => this.setState({ num: e.target.value }) }/>
-        <button onClick={ this.handleDisplayNumber }>Submit</button>
         <MessageContainer
           filtered={this.state.filtered}
           messages={this.state.messages}
