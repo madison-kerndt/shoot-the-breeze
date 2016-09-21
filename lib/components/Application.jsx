@@ -16,11 +16,13 @@ export default class Application extends React.Component {
       filtered: [],
       chosenUser: '',
       chosen: [],
+      num: 100,
+      displayNum: ''
     };
   }
 
   componentDidMount() {
-    reference.limitToLast(100).on('value', (snapshot) => {
+    reference.limitToLast(+this.state.num).on('value', (snapshot) => {
       const messages = snapshot.val() || {};
       this.setState({
         messages: map(messages, (val, key) => extend(val, { key })),
@@ -58,6 +60,12 @@ export default class Application extends React.Component {
     );
   }
 
+  // handleDisplayNumber(){
+  //   // e.preventDefault();
+  //   if (!this.state.num) { return 100; }
+  //   { return parseInt(this.state.num); }
+  // }
+
   render() {
     return (
       <section>
@@ -66,6 +74,8 @@ export default class Application extends React.Component {
           sort={ this.state.sort }
           handleReverseOrder={() => this.handleReverseOrder()}
         />
+        <input type='number' onChange={(e) => this.setState({ num: e.target.value }) }/>
+        <button onClick={ this.handleDisplayNumber }>Submit</button>
         <MessageContainer
           filtered={this.state.filtered}
           messages={this.state.messages}
