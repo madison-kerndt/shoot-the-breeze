@@ -20,14 +20,13 @@ export default class Application extends React.Component {
   }
 
   componentDidMount() {
-    reference.limitToLast(+this.state.num).on('value', (snapshot) => {
+    reference.limitToLast(100).on('value', (snapshot) => {
       const messages = snapshot.val() || {};
       this.setState({
         messages: map(messages, (val, key) => extend(val, { key })),
       });
     });
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
-    console.log(reference);
   }
 
   handleReverseOrder() {
