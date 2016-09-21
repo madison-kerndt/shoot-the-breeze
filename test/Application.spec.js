@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount, render, spys } from 'enzyme';
 import { assert, expect } from 'chai';
 
 import Application from '../lib/components/Application';
@@ -48,9 +48,31 @@ describe('Application states', () => {
     expect(wrapper.state().chosen.length).to.equal(1);
   });
 });
-
-describe('Sort Button', () => {
-  it('should be able to sort the message array', () => {
-
-  }
-}
+//
+// describe('Sort Buttons', () => {
+//   describe('<Application />', () => {
+//
+//     it('calls componentDidMount', () => {
+//       spy(Application.prototype, 'componentDidMount');
+//       const wrapper = mount(<Application />);
+//       expect(Application.prototype.componentDidMount.calledOnce).to.equal(true);
+//     });
+//
+//     // it('allows us to set props', () => {
+//     //   const wrapper = mount(<Application bar="baz" />);
+//     //   expect(wrapper.props().bar).to.equal("baz");
+//     //   wrapper.setProps({ bar: "foo" });
+//     //   expect(wrapper.props().bar).to.equal("foo");
+//     // });
+//     //
+//     // it('simulates click events', () => {
+//     //   const onButtonClick = spy();
+//     //   const wrapper = mount(
+//     //     <Application onButtonClick={onButtonClick} />
+//     //   );
+//     //   wrapper.find('button').simulate('click');
+//     //   expect(onButtonClick.calledOnce).to.equal(true);
+//     // });
+//
+//   });
+// });
