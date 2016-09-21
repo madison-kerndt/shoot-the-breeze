@@ -15,7 +15,7 @@ export default class Application extends React.Component {
       sort: true,
       filtered: [],
       chosenUser: '',
-      chosen: [],
+      chosen: []
     };
   }
 
@@ -27,6 +27,7 @@ export default class Application extends React.Component {
       });
     });
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
+    console.log(reference);
   }
 
   handleReverseOrder() {
