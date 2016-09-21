@@ -60,7 +60,15 @@ $font-main: 'Fira Sans', sans-serif;
   background-position: right center;
   border: none;
   color: white;
+  opacity: .9;
   @include border-radius(2px);
+
+  &:hover {
+    opacity: 1;
+  }
+  &:disabled {
+    opacity: .4;
+  }
 }
 
 @mixin font-main-bold($color) {
