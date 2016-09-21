@@ -42,9 +42,15 @@ describe('Application states', () => {
     expect(wrapper.state().chosenUser).to.equal('Name');
   });
 
-  it('should allow us to set a filtered array as state', () => {
+  it('should allow us to add an object to the chosen array', () => {
     const wrapper = mount(<Application />);
     wrapper.state().chosen = ['Name'];
     expect(wrapper.state().chosen.length).to.equal(1);
   });
 });
+
+describe('Sort Button', () => {
+  it('should be able to sort the message array', () => {
+
+  }
+}

@@ -1,8 +1,12 @@
 @import 'variables';
 
 main {
+  display: inline-block;
+  height: (100vh - 45vh);
+  overflow: scroll;
   padding: 3vw;
   padding-top: 15vh;
+
 }
 
 .message {
@@ -25,6 +29,14 @@ main article {
 
 @media (min-width: 400px) {
   main {
+    height: 100vh - 30vh;
     padding-top: 10vh;
+  }
+}
+
+@media (min-width: 620px) {
+  main {
+    width: 60%;
+    margin: 0;
   }
 }

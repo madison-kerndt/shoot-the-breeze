@@ -16,7 +16,7 @@ export default function ({ user }) {
         </section>
         <MessageInput user={ user }/>
       </footer>
-    )
+    );
   }
   return (
     <footer
@@ -30,5 +30,6 @@ export default function ({ user }) {
     </footer>
   );
 }
+
 
 // firebase.auth().onAuthChanged( takes a function )
