@@ -29,11 +29,16 @@ describe('Filter', () => {
     }
   };
 
-  it('should set the filetered array equal to the messages that match our filter criteria', () => {
+
+
+
+  it('should', () => {
+
+  });
+
+  it('should set the filtered array equal to the messages that match our filter criteria', () => {
     const wrapper = mount(<Application />);
-    // eval(locus);
     wrapper.state().messages = [message, message2];
-    wrapper.state().filtered = [];
     wrapper.state().user = message.user.displayName;
 
     const input = wrapper.find('.header-nav-input');

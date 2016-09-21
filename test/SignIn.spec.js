@@ -10,4 +10,6 @@ describe('SignIn', () => {
     const wrapper = shallow(<SignIn />);
     assert.equal(wrapper.type(), 'footer');
   });
+
+  //const wrapper = shallow(<SignIn user=mockMessage[0].user/>)
 });
