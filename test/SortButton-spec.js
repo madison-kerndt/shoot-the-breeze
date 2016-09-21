@@ -29,7 +29,7 @@ describe('Sort Buttons', () => {
         email: 'madison.kerndt@gmail.com',
         uid: 'eDnoVr1f5OZlySEszpbYSI2IcxG2'
     }
-  }
+  };
 
   it('should renders as a button', () => {
     const wrapper = shallow(<SortButton /> );
@@ -61,12 +61,20 @@ describe('Sort Buttons', () => {
 
   it('should change the order in which the messages are rendered', () => {
     const wrapper = mount(<Application />);
-
     wrapper.state().messages = [message, message2]
     wrapper.state().user = message.user.displayName
 
     let button = wrapper.find('.header-main-sort-button-down').simulate('click')
     expect(wrapper.state().messages).to.deep.equal([message2, message]);
+  });
+
+  it('should change the order in which the messages are rendered', () => {
+    const wrapper = mount(<Application />);
+    wrapper.state().messages = [message, message2]
+    wrapper.state().user = message.user.displayName
+
+    let button = wrapper.find('.header-main-sort-button-up').simulate('click')
+    expect(wrapper.state().messages).to.deep.equal([message, message2]);
   });
 });
 

@@ -58,12 +58,6 @@ export default class Application extends React.Component {
     );
   }
 
-  // handleDisplayNumber(){
-  //   // e.preventDefault();
-  //   if (!this.state.num) { return 100; }
-  //   { return parseInt(this.state.num); }
-  // }
-
   render() {
     return (
       <section>
