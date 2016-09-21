@@ -1,9 +1,9 @@
 import React from 'react';
-import firebase, { signIn } from '../firebase';
+import firebase, { signIn, signOut } from '../firebase';
 import MessageInput from './MessageInput';
 
 
-export default function ({ user }) {
+export default function ({ user, handleSignOut }) {
   if (user) {
     return (
       <footer>
@@ -12,6 +12,12 @@ export default function ({ user }) {
             <p>
               Logged in as {user.displayName} ({user.email}).
             </p>
+            <button
+              onClick={ handleSignOut }
+              className='signout-button'
+            >
+              Logout
+            </button>
           </article>
         </section>
         <MessageInput user={ user }/>

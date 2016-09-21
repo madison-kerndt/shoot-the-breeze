@@ -2,7 +2,7 @@
 
 .sign-in {
   position: fixed;
-  bottom: 15vh;
+  bottom: 0;
   @include sign-in();
 }
 
@@ -25,9 +25,14 @@
   display: inline-block;
 }
 
+.signout-button {
+  @include button($color-highlight-three);
+  margin-left: 10px;
+}
+
 @media (min-width: 400px) {
   .sign-in {
-    bottom: 10vh;
+    bottom: 0;
   }
 
   .user-info {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { map, extend, reverse } from 'lodash';
-import firebase, { reference } from '../firebase';
+import firebase, { reference, signOut } from '../firebase';
 import Header from './Header';
 import MessageContainer from './MessageContainer';
 import UserList from './UserList';
@@ -11,11 +11,11 @@ export default class Application extends React.Component {
     super();
     this.state = {
       messages: [],
-      user: null,
+      user: '',
       sort: true,
       filtered: [],
       chosenUser: '',
-      chosen: []
+      chosen: [],
     };
   }
 
@@ -27,7 +27,6 @@ export default class Application extends React.Component {
       });
     });
     firebase.auth().onAuthStateChanged(user => this.setState({ user }));
-    console.log(reference);
   }
 
   handleReverseOrder() {
@@ -59,6 +58,10 @@ export default class Application extends React.Component {
     );
   }
 
+  userSignOut() {
+    firebase.auth().signOut().then(this.setState({ user: '' }))
+  }
+
   render() {
     return (
       <section>
@@ -77,7 +80,10 @@ export default class Application extends React.Component {
           messages={this.state.messages}
           user={this.state.user}
         />
-        <SignIn user={this.state.user}/>
+        <SignIn
+          user={this.state.user}
+          handleSignOut={() => this.userSignOut()}
+        />
       </section>
     );
   }
