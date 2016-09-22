@@ -15,10 +15,11 @@ $font-main: 'Fira Sans', sans-serif;
   display: -ms-box;
 }
 
-@mixin flex-center {
-  @include flex;
-  justify-content: center;
-  align-items: center;
+@mixin hyphin() {
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 @mixin border-radius($radius) {
@@ -26,6 +27,12 @@ $font-main: 'Fira Sans', sans-serif;
   -moz-border-radius: $radius;
   -ms-border-radius: $radius;
   border-radius: $radius;
+}
+
+@mixin flex-center() {
+  @include flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin bookends() {
@@ -66,6 +73,7 @@ $font-main: 'Fira Sans', sans-serif;
   &:hover {
     opacity: 1;
   }
+
   &:disabled {
     opacity: .4;
   }
@@ -80,7 +88,7 @@ $font-main: 'Fira Sans', sans-serif;
   height: 14vh;
   width: 100vw;
 
+  position: fixed;
   background-color: $color-base-dark;
   color: white;
-  position: fixed;
 }

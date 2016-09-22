@@ -2,19 +2,19 @@
 
 main {
   display: inline-block;
+
   height: (100vh - 45vh);
+  width: 90vw;
   overflow: scroll;
+
   padding: 3vw;
   padding-top: 15vh;
-  width: 90vw;
 }
 
 .message {
+  @include hyphin();
   margin-top: 40px;
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
+
   overflow-wrap: break-word;
   word-wrap: break-word;
 }

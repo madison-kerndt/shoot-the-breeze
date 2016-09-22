@@ -1,20 +1,20 @@
 @import 'variables';
 
 .sign-in {
+  @include sign-in();
   position: fixed;
   bottom: 0;
-  @include sign-in();
 }
 
 .user-info {
-  bottom: 15vh;
   @include sign-in();
+  bottom: 15vh;
 }
 
 .sign-in-button {
+  @include button($color-highlight-two);
   margin-left: 20px;
   margin-top: 2vh;
-  @include button($color-highlight-two);
 }
 
 .user-info-text-block {
@@ -28,9 +28,9 @@
 
 .signout-button {
   @include button($color-highlight-three);
+  float: right;
   margin-right: 10px;
   margin-top: 10px;
-  float: right;
 }
 
 @media (min-width: 400px) {
