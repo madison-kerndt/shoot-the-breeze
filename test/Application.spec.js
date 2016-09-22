@@ -163,8 +163,13 @@ describe('Application states', () => {
       assert.lengthOf(wrapper.find('.user-list'), 1);
     });
 
+    it('should return an array with one item', () => {
+      const wrapper = mount(<Application />);
+      wrapper.state().chosen = [message];
+      expect(wrapper.state().chosen.length).to.equal(1);
+    });
+
     it.skip('should return an instance of one when a name is clicked', () => {
-      // expect(wrapper)
     });
 
     it.skip('should set the state of chosen user to an empty string', () => {

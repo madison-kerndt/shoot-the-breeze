@@ -19,7 +19,7 @@ export default ({ user, handleSignOut }) => {
             </button>
           </article>
         </section>
-        <MessageInput user={ user }/>
+        <MessageInput className='message-input' user={ user }/>
       </footer>
     );
   }
