@@ -6,11 +6,17 @@ main {
   overflow: scroll;
   padding: 3vw;
   padding-top: 15vh;
-
+  width: 90vw;
 }
 
 .message {
   margin-top: 40px;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 main article {
@@ -30,6 +36,12 @@ main article {
 .remove-message-button {
   @include button ($color-highlight-three);
   float: right;
+  margin-bottom: 15px;
+  margin-right: 20px;
+}
+
+.message-content {
+  line-height: 1.4em;
 }
 
 @media (min-width: 400px) {
