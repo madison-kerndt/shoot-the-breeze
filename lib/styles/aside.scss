@@ -1,8 +1,9 @@
 @import 'variables';
 
 aside {
-  display: none;
+  display: hidden;
 }
+
 @media (min-width: 620px) {
   aside {
     display: inline-block;

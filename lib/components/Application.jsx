@@ -11,11 +11,12 @@ export default class Application extends React.Component {
     super();
     this.state = {
       messages: [],
-      user: null,
+      user: '',
       sort: true,
       filtered: [],
       chosenUser: '',
       chosen: [],
+      currentUser: '',
     };
   }
 
@@ -26,7 +27,7 @@ export default class Application extends React.Component {
         messages: map(messages, (val, key) => extend(val, { key })),
       });
     });
-    firebase.auth().onAuthStateChanged(user => this.setState({ user }));
+    firebase.auth().onAuthStateChanged(user => this.setState({ user, currentUser: user }));
   }
 
   handleReverseOrder() {
@@ -59,7 +60,7 @@ export default class Application extends React.Component {
   }
 
   userSignOut() {
-    firebase.auth().signOut().then(this.setState({ user: '' }))
+    firebase.auth().signOut().then(this.setState({ user: '', currentUser: '' }));
   }
 
   render() {
@@ -74,11 +75,13 @@ export default class Application extends React.Component {
           filtered={this.state.filtered}
           messages={this.state.messages}
           chosen={this.state.chosen}
+          currentUser={this.state.currentUser}
         />
         <UserList
           handleSaveChosenUid={e => this.handleSaveChosenUid(e)}
           messages={this.state.messages}
           user={this.state.user}
+          currentUser={this.state.currentUser}
         />
         <SignIn
           user={this.state.user}
