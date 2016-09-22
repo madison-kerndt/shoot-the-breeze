@@ -1,7 +1,7 @@
 import React from 'react';
 import { uniqBy } from 'lodash';
 
-export default function ({ handleSaveChosenUid, messages, user }) {
+export default ({ handleSaveChosenUid, messages, user }) => {
   const uniqueUsers = uniqBy(messages, u => u.user.uid);
   const userListNames = uniqueUsers.sort((a, b) => (a.user.displayName > b.user.displayName) ? 1 : ((b.user.displayName > a.user.displayName) ? -1 : 0));
   return (
@@ -14,6 +14,7 @@ export default function ({ handleSaveChosenUid, messages, user }) {
             return (
               <li
                 key={m.key}
+                className='user-name-current user-name'
                 onClick={() => handleSaveChosenUid(m.user.uid) }
               >
                 { m.user.displayName } ({ m.user.email })
@@ -24,6 +25,7 @@ export default function ({ handleSaveChosenUid, messages, user }) {
           return (
             <li
               key={m.key}
+              className='user-name-all user-name'
               onClick={() => handleSaveChosenUid(m.user.uid) }
             >
               { m.user.displayName } ({ m.user.email })
