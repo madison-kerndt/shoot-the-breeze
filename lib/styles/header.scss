@@ -3,6 +3,7 @@
 .header {
   @include bookends();
   top: 0;
+  z-index: 1;
 }
 
 .header-main-title {

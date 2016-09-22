@@ -2,8 +2,7 @@ import React from 'react';
 import firebase, { signIn, signOut } from '../firebase';
 import MessageInput from './MessageInput';
 
-
-export default function ({ user, handleSignOut }) {
+export default ({ user, handleSignOut }) => {
   if (user) {
     return (
       <footer>
