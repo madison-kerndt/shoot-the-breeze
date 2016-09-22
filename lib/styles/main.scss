@@ -27,6 +27,11 @@ main article {
   margin-left: 1em;
 }
 
+.remove-message-button {
+  @include button ($color-highlight-three);
+  float: right;
+}
+
 @media (min-width: 400px) {
   main {
     height: 100vh - 30vh;

@@ -59,7 +59,7 @@ export default class Application extends React.Component {
   }
 
   userSignOut() {
-    firebase.auth().signOut().then(this.setState({ user: '' }))
+    firebase.auth().signOut().then(this.setState({ user: '' }));
   }
 
   render() {
