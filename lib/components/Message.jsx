@@ -31,7 +31,6 @@ export default function ({ createdAt, user, content, reference, currentUser }) {
       </section>
     );
   }
->>>>>>> 543347d5570dd106275f4e503c5bbd777031a67b
   return (
     <section className='message'>
       <article className='message-time time'>
