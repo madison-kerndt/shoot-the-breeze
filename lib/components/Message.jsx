@@ -3,7 +3,7 @@ import moment from 'moment';
 import firebase from '../firebase';
 import SortButton from './SortButton';
 
-export default function ({ createdAt, user, content, reference, currentUser }) {
+export default ({ createdAt, user, content, reference, currentUser }) => {
   if (!currentUser) {
     return (
       <section className='message'>
